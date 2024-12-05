@@ -1,0 +1,15 @@
+/Users/nakharinh.phomsouvanh/Code/C#/MyFirstProgram/bin/Debug/net9.0/MyFirstProgram
+/Users/nakharinh.phomsouvanh/Code/C#/MyFirstProgram/bin/Debug/net9.0/MyFirstProgram.deps.json
+/Users/nakharinh.phomsouvanh/Code/C#/MyFirstProgram/bin/Debug/net9.0/MyFirstProgram.runtimeconfig.json
+/Users/nakharinh.phomsouvanh/Code/C#/MyFirstProgram/bin/Debug/net9.0/MyFirstProgram.dll
+/Users/nakharinh.phomsouvanh/Code/C#/MyFirstProgram/bin/Debug/net9.0/MyFirstProgram.pdb
+/Users/nakharinh.phomsouvanh/Code/C#/MyFirstProgram/obj/Debug/net9.0/MyFirstProgram.GeneratedMSBuildEditorConfig.editorconfig
+/Users/nakharinh.phomsouvanh/Code/C#/MyFirstProgram/obj/Debug/net9.0/MyFirstProgram.AssemblyInfoInputs.cache
+/Users/nakharinh.phomsouvanh/Code/C#/MyFirstProgram/obj/Debug/net9.0/MyFirstProgram.AssemblyInfo.cs
+/Users/nakharinh.phomsouvanh/Code/C#/MyFirstProgram/obj/Debug/net9.0/MyFirstProgram.csproj.CoreCompileInputs.cache
+/Users/nakharinh.phomsouvanh/Code/C#/MyFirstProgram/obj/Debug/net9.0/MyFirstProgram.dll
+/Users/nakharinh.phomsouvanh/Code/C#/MyFirstProgram/obj/Debug/net9.0/refint/MyFirstProgram.dll
+/Users/nakharinh.phomsouvanh/Code/C#/MyFirstProgram/obj/Debug/net9.0/MyFirstProgram.pdb
+/Users/nakharinh.phomsouvanh/Code/C#/MyFirstProgram/obj/Debug/net9.0/MyFirstProgram.genruntimeconfig.cache
+/Users/nakharinh.phomsouvanh/Code/C#/MyFirstProgram/obj/Debug/net9.0/ref/MyFirstProgram.dll
+/Users/nakharinh.phomsouvanh/Code/C#/MyFirstProgram/obj/Debug/net9.0/MyFirstProgram.sourcelink.json

@@ -5,6 +5,7 @@ example="3   4
 3   9
 3   3
 "
+
 # From the input create 2 Hash object containing the values of the first column
 # Hash has the row number as key, and value as integer
 # example =>   column_left = { :0 => 4, :1 => 2 , ...}
@@ -14,7 +15,7 @@ example="3   4
 class InputToHash
     attr_reader :column_left, :column_right
     def initialize(input)
-        @column_left, @column_right = {} 
+        @column_left, @column_right = {}
         convert_to_hash(input)
     end
 
@@ -55,7 +56,7 @@ class LocationsId < InputToHash
         # remove the smallet location from each hash list
         list_left.delete(location_left[0])
         list_right.delete(location_right[0])
-        
+
         # Add the absolute value for total_distance
          @total_distance += (location_left[1] - location_right[1]).abs()
         end

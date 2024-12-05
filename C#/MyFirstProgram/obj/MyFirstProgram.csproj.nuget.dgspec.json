@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/nakharinh.phomsouvanh/Code/C#/MyFirstProgram/MyFirstProgram.csproj": {}
+    "/Users/elektrodynamiks/Code/E.Internship/C#/MyFirstProgram/MyFirstProgram.csproj": {}
   },
   "projects": {
-    "/Users/nakharinh.phomsouvanh/Code/C#/MyFirstProgram/MyFirstProgram.csproj": {
+    "/Users/elektrodynamiks/Code/E.Internship/C#/MyFirstProgram/MyFirstProgram.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/nakharinh.phomsouvanh/Code/C#/MyFirstProgram/MyFirstProgram.csproj",
+        "projectUniqueName": "/Users/elektrodynamiks/Code/E.Internship/C#/MyFirstProgram/MyFirstProgram.csproj",
         "projectName": "MyFirstProgram",
-        "projectPath": "/Users/nakharinh.phomsouvanh/Code/C#/MyFirstProgram/MyFirstProgram.csproj",
-        "packagesPath": "/Users/nakharinh.phomsouvanh/.nuget/packages/",
-        "outputPath": "/Users/nakharinh.phomsouvanh/Code/C#/MyFirstProgram/obj/",
+        "projectPath": "/Users/elektrodynamiks/Code/E.Internship/C#/MyFirstProgram/MyFirstProgram.csproj",
+        "packagesPath": "/Users/elektrodynamiks/.nuget/packages/",
+        "outputPath": "/Users/elektrodynamiks/Code/E.Internship/C#/MyFirstProgram/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/nakharinh.phomsouvanh/.nuget/NuGet/NuGet.Config"
+          "/Users/elektrodynamiks/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"

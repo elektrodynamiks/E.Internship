@@ -88,11 +88,16 @@ end
 
 
 # check if the example is correct.
-puts "total distances: ",LocationsId.new(example).total_distance
-puts "similarity score: ",LocationsId.new(example).similarity_score
+location_lists =LocationsId.new(example)
+puts "Example"
+puts "total distances: ",location_lists.total_distance
+puts "similarity score: ",location_lists.similarity_score
 
 if (LocationsId.new(example).total_distance == 11 && LocationsId.new(example).similarity_score ==31)
     puzzle_input = File.read("day01-1-input.txt")
-    puts LocationsId.new(puzzle_input).total_distance
-    puts LocationsId.new(puzzle_input).similarity_score
+    location_lists =LocationsId.new(puzzle_input)
+    puts "Puzzle"
+    puts "total distances: ",location_lists.total_distance
+    puts "similarity score: ",location_lists.similarity_score
+    
 end

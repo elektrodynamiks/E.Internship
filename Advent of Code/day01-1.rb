@@ -1,4 +1,5 @@
-example="3   4
+example=
+"3   4
 4   3
 2   5
 1   3
@@ -35,21 +36,22 @@ class InputToHash
 end
 
 class LocationsId < InputToHash
-    attr_reader :total_distance
+    attr_reader :total_distance, :similarity_score
     def initialize(input)
         @total_distance = 0
-        lists = InputToHash.new(input)
-        distance_between_lists(lists)
+        @similarity_score = 0
+        distance_between_lists(InputToHash.new(input))
+        similarity_between_lists(InputToHash.new(input))
     end
 
     def distance_between_lists(lists)
-         list_left = lists.column_left
-         list_right =lists.column_right
+        list_left = lists.column_left
+        list_right =lists.column_right
 
-         # iteration until the lists if empty (left or right)
+        # iteration until the lists if empty (left or right)
         while (list_left.size > 0 ) do
 
-         # search for smallest location_id in each column
+        # search for smallest location_id in each column
         location_left = smallest_location_id(list_left)
         location_right = smallest_location_id(list_right)
 
@@ -60,18 +62,37 @@ class LocationsId < InputToHash
         # Add the absolute value for total_distance
          @total_distance += (location_left[1] - location_right[1]).abs()
         end
+    end
+  
+    def smallest_location_id(list)
+             list.sort_by { |key, value| value }.first
+    end
 
-        end
+    def similarity_between_lists(lists)
+        list_left = lists.column_left
+        list_right =lists.column_right
+          # iteration on the left list
+          list_left.each do |location_id|
+            similarity = find_similarity(list_right,location_id[1]).size
+            @similarity_score+= location_id[1]*similarity
+          end
+    end
+    
+    def find_similarity(list_right,location_id)
+    # find the number of time the value appears in list_right
+    list_right.select {|key, value| value == location_id }
+    end
 
-def smallest_location_id(list)
-     list.sort_by { |key, value| value }.first
 end
-end
+
+
 
 # check if the example is correct.
-puts LocationsId.new(example).total_distance
+puts "total distances: ",LocationsId.new(example).total_distance
+puts "similarity score: ",LocationsId.new(example).similarity_score
 
-if (LocationsId.new(example).total_distance == 11)
+if (LocationsId.new(example).total_distance == 11 && LocationsId.new(example).similarity_score ==31)
     puzzle_input = File.read("day01-1-input.txt")
     puts LocationsId.new(puzzle_input).total_distance
+    puts LocationsId.new(puzzle_input).similarity_score
 end

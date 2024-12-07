@@ -97,3 +97,59 @@ check_the_reports = ReportsToProgression.new(input, tolerate_bad_level)
 puts "puzzle"
 puzzle_input = File.read("day02_input.txt")
 check_the_reports = ReportsToProgression.new(puzzle_input, tolerate_bad_level)
+
+
+
+=begin
+7 6 4 2 1 
+1 2 7 8 9 
+9 7 6 2 1 
+1 3 2 4 5 
+8 6 4 4 1 
+1 3 6 7 9 
+ 
+
+Data Manipulation 
+from the puzzle input create a array for each report 
+the array is composed of the levels separated by the spacing ' ', converted to int 
+Iteration on the reports 
+ 
+# PART 1 
+Create an array of terms progression from the report 
+For the report array[…value(index)...] of size n we create a array composed of the progression 
+The progression array is: array[…(level[n+1]-level[n])…] for n>1 and of array.size = n-1 
+ 
+Test the safety on the progression array. 
+The report is safe if: 
+if all array elements have the same sign 
+(+ for increasing, - for decreasing) 
+if each array elements.abs() is (> 1 and <=3) 
+ 
+ 
+# PART 2 
+Only for unsafe report do. 
+We tolerate a single bad level: 
+From the report as an ordered list of n items, 
+generate n reports of size n-1  
+On the each of the generated n reports 
+we execute #PART 1 
+the original report is safe if at least on of the sub-report is safe. 
+ 
+
+Example:
+Data Manipulation 
+1 2 7 8 9 -> [1 2 7 8 9]  
+ 
+Part I 
+From report to progression 
+[1 2 7 8 9] -> [1, 5, 1, 1]  
+Tests 
+ [1, 5, 1, 1]: Unsafe because 2 7 is an increase of 5. 
+ 
+Part II 
+[1 2 7 8 9] is Unsafe. 
+Generate the reports of size 4 
+[1 2 7 8 9] -> [[2, 7, 8, 9][1, 7, 8, 9][1, 2, 8, 9][1, 2, 7, 9][1, 2, 7, 8]] 
+                Execute Part I on these reports 
+                -> all unsafe
+

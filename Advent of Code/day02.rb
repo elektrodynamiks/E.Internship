@@ -74,7 +74,7 @@ def  reports_with_tolerance(report)
   for i in 0..report.length()-1 do
     input = report.clone
     input.delete_at(i)
-    # check on the sub-reports as created, we need only one safe.
+    # check the sub-reports as created, we need only one safe.
     if safety_report_check?(input) then
       # print input,"safe"
       # puts

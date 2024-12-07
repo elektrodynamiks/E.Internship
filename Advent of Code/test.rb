@@ -1,97 +1,116 @@
 # Ruby 3.3.6
 #
 input = <<~EXAMPLE
-7 6 4 2 1
-1 2 7 8 9
-9 7 6 2 1
-1 3 2 4 5
-8 6 4 4 1
-1 3 6 7 9
+190: 10 19
+3267: 81 40 27
+83: 17 5
+156: 15 6
+7290: 6 8 6 15
+161011: 16 10 13
+192: 17 8 14
+21037: 9 7 18 13
+292: 11 6 16 20
 EXAMPLE
 
-class ReportsToProgression
-  attr_reader :reports, :number_of_safe_reports
+class DataManipulation
+  attr_reader :calibration_equations, :total_calibration_result
+  attr_reader :switch
 
-  def initialize(input, tolerate_bad_level)
-    @reports = []
-    @number_of_safe_reports = 0
+  def initialize(input, extended_operator)
+    @switch = true
+    @calibration_equations = []
+    @total_calibration_result = 0
     data_manipulation(input)
-    main(tolerate_bad_level)
-  end
-
-  def data_manipulation(input)
-    input.each_line do |line|
-      @reports << line.scan(/\w+/).map(&:to_i)
-    end
-  end
-
-  def main(tolerate_bad_level)
-    @reports.each do |report|
-      # print report
-      puts safety_report_check?(report)
-      if safety_report_check?(report) then
-        safety_reports_count()
-      else
-        # generate the reports_with_tolerance
-        reports_with_tolerance(report)
-      end
-      puts "#--"
-    end
-    print "How many reports are safe for the example: ",  @number_of_safe_reports
+    main(extended_operator)
+    print 'total_calibration_result: ',@total_calibration_result
     puts
   end
 
+  def data_manipulation(input)
+    # 190: 10 19 -> {test_value: 190, numbers: [10, 19], combination => numbers.length()}
+    single_equation = {}
+    input.each_line do |line|
+      equation = line.scan(/\w+/).map(&:to_i)
+      @calibration_equations << {
+        test_value: equation.first(),
+        numbers: equation.drop(1),
+        combination: equation.drop(1).length()-1
+      }
+    end
+  end
+
+  def main(extended_operator)
+    @calibration_equations.each do |equation|
+      # print equation
+      # puts
+      equation_solving(equation,extended_operator)
+      
+    end
+  end
+
   # PART I
-  def report_to_progression(levels)
-    progression = []
-    levels.each_with_index.map do |level, index|
-      progression << (levels[index] - levels[index - 1]) if (index > 0)
+  def equation_solving(equation,extended_operator)
+    test_value = equation[:test_value]
+    numbers = equation[:numbers]
+    combination = equation[:combination]
+    puts equation_solved = check_equation?(test_value,numbers,combination,extended_operator)
+    if !equation_solved & extended_operator
+      puts "check with expended operator"
+      check_equation_with_extended_oprators?(test_value,numbers,combination,extended_operator)
     end
-    return progression
-  end
-
-  def safety_report_check?(report)
-    progression = report_to_progression(report)
-    # progression is increasing or decreasing
-    increasing = progression.all? { |level| level > 0 }
-    decreasing = progression.all? { |level| level < 0 }
-    if (increasing ^ decreasing)
-      # progression differ > 1 and <= 3
-      at_least_one = progression.none? { |element| element.abs() == 0 }
-      at_most_three = progression.none? { |element| element.abs() > 3 }
-      return (at_least_one & at_most_three)
-    end
-    return (increasing ^ decreasing)
-  end
-  
-  def safety_reports_count()
-    @number_of_safe_reports += 1
-  end
-
-  # PART II
-def  reports_with_tolerance(report)
-  puts
-  for i in 0..report.length()-1 do
-    input = report.clone
-    input.delete_at(i)
-    # check on the sub-reports as created, we need only one safe.
-    if safety_report_check?(input) then
-      # print input,"safe"
-      puts
-      safety_reports_count()
-    break
-    end
-  end
-    
-  end
 end
 
+  def generate_combination(combination,extended_operator)
+    operators = ['*','+']
+    return operators.repeated_permutation(combination).to_a if !extended_operator
+   # Part II
+   operators_with_extended_oprators = ['*','+','||']
+    return operators_with_extended_oprators.repeated_permutation(combination).to_a if extended_operator
+  end
+
+  def check_equation?(test_value,numbers,combination,extended_operator)
+    operators_combination = generate_combination(combination,extended_operator)
+    operators_combination.each do |combination|
+    if evaluate_equation(numbers,combination) == test_value then
+      print 'equation sovlved, value: ', test_value
+      puts
+      @total_calibration_result += test_value
+      return true
+      break
+    end
+    end
+    return false
+  end
+
+def evaluate_equation(numbers,combination)
+  #print "numbers: ",numbers
+  #puts
+  #print combination
+  #puts
+  value = numbers[0]
+  #puts
+  for index in  1..numbers.length()-1 do 
+     value = (value  + numbers[index]) if (combination[index - 1] == '+') 
+     value = (value  * numbers[index]) if (combination[index - 1] == '*') 
+  end
+  return value
+end
+
+  # PART II
+  def check_equation_with_extended_oprators?(test_value,numbers,combination,extended_operator)
+    operators_combination = generate_combination(combination,extended_operator)
+    print operators_combination
+    puts
+  end
+
+end
 
 # Part I
-# set tolerate_bad_level = true for PART II
-tolerate_bad_level = true
-check_the_reports = ReportsToProgression.new(input, tolerate_bad_level)
+# or set part_II = true
+puts "example"
+extended_operator = true
+DataManipulation.new(input, extended_operator)
 # check for the puzzle
-puts "puzzle"
-puzzle_input = File.read("day02_input.txt")
-check_the_reports = ReportsToProgression.new(puzzle_input, tolerate_bad_level)
+#puts "puzzle"
+#puzzle_input = File.read("day03_input.txt")
+#DataManipulation.new(puzzle_input, extended_operator)

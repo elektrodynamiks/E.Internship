@@ -14,10 +14,10 @@ EXAMPLE
 
 class DataManipulation
   attr_reader :calibration_equations, :total_calibration_result
-  attr_reader :switch
+
 
   def initialize(input, extended_operator)
-    @switch = true
+
     @calibration_equations = []
     @total_calibration_result = 0
     data_manipulation(input)
@@ -53,10 +53,11 @@ class DataManipulation
     test_value = equation[:test_value]
     numbers = equation[:numbers]
     combination = equation[:combination]
-    puts equation_solved = check_equation?(test_value,numbers,combination,extended_operator)
+    equation_solved = check_equation?(test_value,numbers,combination,false)
     if !equation_solved & extended_operator
-      puts "check with expended operator"
-      check_equation_with_extended_oprators?(test_value,numbers,combination,extended_operator)
+      # Puts "check with expended operator"
+      # Part II
+      check_equation?(test_value,numbers,combination,extended_operator)
     end
 end
 
@@ -71,9 +72,9 @@ end
   def check_equation?(test_value,numbers,combination,extended_operator)
     operators_combination = generate_combination(combination,extended_operator)
     operators_combination.each do |combination|
-    if evaluate_equation(numbers,combination) == test_value then
-      print 'equation sovlved, value: ', test_value
-      puts
+    if evaluate_equation(numbers,combination,extended_operator) == test_value then
+      #print 'equation sovlved, value: ', test_value
+      #puts
       @total_calibration_result += test_value
       return true
       break
@@ -82,26 +83,16 @@ end
     return false
   end
 
-def evaluate_equation(numbers,combination)
-  #print "numbers: ",numbers
-  #puts
-  #print combination
-  #puts
+def evaluate_equation(numbers,combination,extended_operator)
   value = numbers[0]
-  #puts
   for index in  1..numbers.length()-1 do 
      value = (value  + numbers[index]) if (combination[index - 1] == '+') 
      value = (value  * numbers[index]) if (combination[index - 1] == '*') 
+     value = (value.to_s + numbers[index].to_s).to_i if (combination[index - 1] == '||') if extended_operator
   end
   return value
 end
 
-  # PART II
-  def check_equation_with_extended_oprators?(test_value,numbers,combination,extended_operator)
-    operators_combination = generate_combination(combination,extended_operator)
-    print operators_combination
-    puts
-  end
 
 end
 
@@ -111,6 +102,6 @@ puts "example"
 extended_operator = true
 DataManipulation.new(input, extended_operator)
 # check for the puzzle
-#puts "puzzle"
-#puzzle_input = File.read("day03_input.txt")
-#DataManipulation.new(puzzle_input, extended_operator)
+puts "puzzle"
+puzzle_input = File.read("day03_input.txt")
+DataManipulation.new(puzzle_input, extended_operator)

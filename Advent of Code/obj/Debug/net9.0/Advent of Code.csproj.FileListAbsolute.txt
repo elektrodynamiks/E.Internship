@@ -1,0 +1,15 @@
+/Users/elektrodynamiks/Code/E.Internship/Advent of Code/obj/Debug/net9.0/Advent of Code.GeneratedMSBuildEditorConfig.editorconfig
+/Users/elektrodynamiks/Code/E.Internship/Advent of Code/obj/Debug/net9.0/Advent of Code.AssemblyInfoInputs.cache
+/Users/elektrodynamiks/Code/E.Internship/Advent of Code/obj/Debug/net9.0/Advent of Code.AssemblyInfo.cs
+/Users/elektrodynamiks/Code/E.Internship/Advent of Code/obj/Debug/net9.0/Advent of Code.csproj.CoreCompileInputs.cache
+/Users/elektrodynamiks/Code/E.Internship/Advent of Code/obj/Debug/net9.0/Advent of Code.sourcelink.json
+/Users/elektrodynamiks/Code/E.Internship/Advent of Code/bin/Debug/net9.0/Advent of Code
+/Users/elektrodynamiks/Code/E.Internship/Advent of Code/bin/Debug/net9.0/Advent of Code.deps.json
+/Users/elektrodynamiks/Code/E.Internship/Advent of Code/bin/Debug/net9.0/Advent of Code.runtimeconfig.json
+/Users/elektrodynamiks/Code/E.Internship/Advent of Code/bin/Debug/net9.0/Advent of Code.dll
+/Users/elektrodynamiks/Code/E.Internship/Advent of Code/bin/Debug/net9.0/Advent of Code.pdb
+/Users/elektrodynamiks/Code/E.Internship/Advent of Code/obj/Debug/net9.0/Advent of Code.dll
+/Users/elektrodynamiks/Code/E.Internship/Advent of Code/obj/Debug/net9.0/refint/Advent of Code.dll
+/Users/elektrodynamiks/Code/E.Internship/Advent of Code/obj/Debug/net9.0/Advent of Code.pdb
+/Users/elektrodynamiks/Code/E.Internship/Advent of Code/obj/Debug/net9.0/Advent of Code.genruntimeconfig.cache
+/Users/elektrodynamiks/Code/E.Internship/Advent of Code/obj/Debug/net9.0/ref/Advent of Code.dll

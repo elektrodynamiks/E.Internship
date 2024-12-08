@@ -6,6 +6,7 @@
     <RootNamespace>Advent_of_Code</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <GenerateProgramFile>false</GenerateProgramFile>
   </PropertyGroup>
 
 </Project>

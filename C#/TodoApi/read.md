@@ -91,3 +91,37 @@ return CreatedAtAction(nameof(GetTodoItem), new { id = todoItem.Id }, todoItem);
 
 Run the app
 dotnet run --launch-profile https
+
+Prevent over-posting
+Currently the sample app exposes the entire TodoItem object. Production apps typically limit the data that's input and returned using a subset of the model. There are multiple reasons behind this, and security is a major one. The subset of a model is usually referred to as a Data Transfer Object (DTO), input model, or view model. DTO is used in this tutorial.
+A DTO may be used to:
+Prevent over-posting.
+Hide properties that clients are not supposed to view.
+Omit some properties in order to reduce payload size.
+Flatten object graphs that contain nested objects. Flattened object graphs can be more convenient for clients.
+
+To demonstrate the DTO approach, update the TodoItem class to include a secret field:
+namespace TodoApi.Models
+{
+public class TodoItem
+{
+public long Id { get; set; }
+public string? Name { get; set; }
+public bool IsComplete { get; set; }
+public string? Secret { get; set; }
+}
+}
+The secret field needs to be hidden from this app, but an administrative app could choose to expose it.
+Verify you can post and get the secret field.
+Create a DTO model:
+
+namespace TodoApi.Models;
+
+public class TodoItemDTO
+{
+public long Id { get; set; }
+public string? Name { get; set; }
+public bool IsComplete { get; set; }
+}
+
+=> update the Controller to use TodoItemDTO

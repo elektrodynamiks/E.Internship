@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/elektrodynamiks/Code/E.Internship/Advent of Code/Advent of Code.csproj",
-      "projectName": "Advent of Code",
-      "projectPath": "/Users/elektrodynamiks/Code/E.Internship/Advent of Code/Advent of Code.csproj",
+      "projectUniqueName": "/Users/elektrodynamiks/Code/E.Internship/AofC/AofC.csproj",
+      "projectName": "AofC",
+      "projectPath": "/Users/elektrodynamiks/Code/E.Internship/AofC/AofC.csproj",
       "packagesPath": "/Users/elektrodynamiks/.nuget/packages/",
-      "outputPath": "/Users/elektrodynamiks/Code/E.Internship/Advent of Code/obj/",
+      "outputPath": "/Users/elektrodynamiks/Code/E.Internship/AofC/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/elektrodynamiks/.nuget/NuGet/NuGet.Config"

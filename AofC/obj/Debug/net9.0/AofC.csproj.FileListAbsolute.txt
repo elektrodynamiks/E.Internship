@@ -1,0 +1,15 @@
+/Users/elektrodynamiks/Code/E.Internship/AofC/bin/Debug/net9.0/AofC
+/Users/elektrodynamiks/Code/E.Internship/AofC/bin/Debug/net9.0/AofC.deps.json
+/Users/elektrodynamiks/Code/E.Internship/AofC/bin/Debug/net9.0/AofC.runtimeconfig.json
+/Users/elektrodynamiks/Code/E.Internship/AofC/bin/Debug/net9.0/AofC.dll
+/Users/elektrodynamiks/Code/E.Internship/AofC/bin/Debug/net9.0/AofC.pdb
+/Users/elektrodynamiks/Code/E.Internship/AofC/obj/Debug/net9.0/AofC.GeneratedMSBuildEditorConfig.editorconfig
+/Users/elektrodynamiks/Code/E.Internship/AofC/obj/Debug/net9.0/AofC.AssemblyInfoInputs.cache
+/Users/elektrodynamiks/Code/E.Internship/AofC/obj/Debug/net9.0/AofC.AssemblyInfo.cs
+/Users/elektrodynamiks/Code/E.Internship/AofC/obj/Debug/net9.0/AofC.csproj.CoreCompileInputs.cache
+/Users/elektrodynamiks/Code/E.Internship/AofC/obj/Debug/net9.0/AofC.sourcelink.json
+/Users/elektrodynamiks/Code/E.Internship/AofC/obj/Debug/net9.0/AofC.dll
+/Users/elektrodynamiks/Code/E.Internship/AofC/obj/Debug/net9.0/refint/AofC.dll
+/Users/elektrodynamiks/Code/E.Internship/AofC/obj/Debug/net9.0/AofC.pdb
+/Users/elektrodynamiks/Code/E.Internship/AofC/obj/Debug/net9.0/AofC.genruntimeconfig.cache
+/Users/elektrodynamiks/Code/E.Internship/AofC/obj/Debug/net9.0/ref/AofC.dll

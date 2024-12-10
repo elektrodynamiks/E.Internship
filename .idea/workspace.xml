@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="18be7fa7-a7a4-425e-a4bd-9f47d4a6a4b0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/Code.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Advent of Code/test.rb" beforeDir="false" afterPath="$PROJECT_DIR$/Advent of Code/test.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/C#/MyFirstProgram/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/C#/MyFirstProgram/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/C#/MyFirstProgram/obj/Debug/net9.0/MyFirstProgram.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/C#/MyFirstProgram/obj/Debug/net9.0/MyFirstProgram.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/C#/MyFirstProgram/obj/Debug/net9.0/MyFirstProgram.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/C#/MyFirstProgram/obj/Debug/net9.0/MyFirstProgram.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/C#/MyFirstProgram/obj/Debug/net9.0/MyFirstProgram.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/C#/MyFirstProgram/obj/Debug/net9.0/MyFirstProgram.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/C#/MyFirstProgram/obj/Debug/net9.0/MyFirstProgram.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/C#/MyFirstProgram/obj/Debug/net9.0/MyFirstProgram.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/C#/MyFirstProgram/obj/Debug/net9.0/MyFirstProgram.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/C#/MyFirstProgram/obj/Debug/net9.0/MyFirstProgram.sourcelink.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/C#/MyFirstProgram/obj/MyFirstProgram.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/C#/MyFirstProgram/obj/MyFirstProgram.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/C#/MyFirstProgram/obj/MyFirstProgram.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/C#/MyFirstProgram/obj/MyFirstProgram.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/C#/MyFirstProgram/obj/Release/net9.0/MyFirstProgram.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/C#/MyFirstProgram/obj/Release/net9.0/MyFirstProgram.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/C#/MyFirstProgram/obj/Release/net9.0/MyFirstProgram.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/C#/MyFirstProgram/obj/Release/net9.0/MyFirstProgram.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/C#/MyFirstProgram/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/C#/MyFirstProgram/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/C#/MyFirstProgram/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/C#/MyFirstProgram/obj/project.nuget.cache" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2puWIdQbuAZrgGLpHas2GucIulC" />
+  <component name="ProjectLevelVcsManager">
+    <OptionsSetting value="false" id="Update" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/nakharinh.phomsouvanh/Code",
+    "settings.editor.selected.configurable": "terminal"
+  },
+  "keyToStringList": {
+    "stardust.markdown.MarkdownSplitEditorSuppressor:keyList": []
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+</project>

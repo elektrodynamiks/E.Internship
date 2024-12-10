@@ -1,4 +1,78 @@
-// See https://aka.ms/new-console-template for more information
+
+
+/*
+ public enum MapContentsType
+    {
+        Content,
+        Unset,
+        OutOfBounds,
+    }
+    
+    
+    
+
+using System;
+using System.Collections.Generic;
+using System.Data.Common;
+using System.IO;
+using System.Text;
+
+public class Advent_Of_Code
+{
+    public readonly Dictionary<String, Object> _tileDefinitions = new Dictionary<String, Object>();
+
+    public void AttachParam(Dictionary<string, string> parameters)
+    {
+        try
+        {
+            if (parameters.Count > 0)
+            {
+                foreach (KeyValuePair<string, string> kvp in parameters)
+                {
+                    Console.WriteLine(kvp.Key, kvp.Value);
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            throw;
+        }
+    }
+
+    public static void Main()
+    {
+        //Create a FileInfo instance representing an existing text file.
+        FileInfo MyFile = new FileInfo(@"day08_example.txt");
+        //Instantiate a StreamReader to read from the text file.
+        StreamReader reader = MyFile.OpenText();
+        // Read the stream as a string.
+        string puzzle_input = reader.ReadToEnd();
+        Console.WriteLine(puzzle_input);
+        Dictionary<string, string> d = new Dictionary<string, string>();
+
+        using (reader)
+        {
+            string line = "";
+
+            // while it reads a key
+            while ((line = reader.ReadLine()) != null)
+            {
+                // add the key and whatever it
+
+                // can read next as the value
+                d.Add(line, reader.ReadLine());
+            }
+        }
+        foreach (KeyValuePair<string, string> kvp in d)
+        {
+            Console.WriteLine("line: ", kvp);
+            Console.WriteLine("kvp[keys]:", kvp.Key, kvp.Value);
+        }
+    }
+}
+
+*/
+
 
 using System;
 using System.IO;
@@ -79,22 +153,21 @@ class Program
     }
 }
 
-public class MapContent
+public class MapCoordinates
 {
     public int XCordinate { get; set; }
     public int YCordinate { get; set; }
     public string XYContent { get; set; }
 }
 
-
-/*
- public enum MapContentsType
-    {
-        Content,
-        Unset,
-        OutOfBounds,
-    }
-    */
-
-    }}
-
+public class Map
+{
+public MapPlan<jaggedArray>
+// Create a class constructor for the Car MapPlan
+  public MapPlan(map_input)
+  {
+    model = "Mustang"; // Set the initial value for model
+    var MapSizze<array> = GetMapSize(fileName);
+  }
+}
+    

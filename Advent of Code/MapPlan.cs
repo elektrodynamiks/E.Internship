@@ -55,7 +55,7 @@ namespace MapPlanClass
             var row = 0;
             foreach (var line in lines)
             {
-                Console.WriteLine(line);
+                // Console.WriteLine(line);
                 char[] xCordinates = line.ToArray();
                 var col = 0;
                 foreach (var xCord in xCordinates)
@@ -67,7 +67,7 @@ namespace MapPlanClass
                 row += 1;
                 Console.WriteLine();
             }
-            PrintMapPlan(result);
+            // PrintMapPlan(result);
             return result;
         }
 
@@ -76,13 +76,13 @@ namespace MapPlanClass
             // outer for loop
             for (int i = 0; i < jaggedArray.Length; i++)
             {
-                Console.Write("Element " + i + ": ");
+                // Console.Write("Element " + i + ": ");
                 // inner for loop
                 for (int j = 0; j < jaggedArray[i].Length; j++)
                 {
                     Console.Write(jaggedArray[i][j] + " ");
                 }
-                Console.WriteLine();
+                //Console.WriteLine();
             }
         }
 

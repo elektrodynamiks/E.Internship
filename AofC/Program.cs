@@ -1,0 +1,24 @@
+﻿// See https://aka.ms/new-console-template for more information
+
+using System;
+using AnagramClass;
+using MapPlanClass;
+
+namespace AdventofCodedaily
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // string fileName = "day04_example.txt";
+            string fileName = "day04_input.txt";
+            MapPlan myWordMap = new MapPlan(fileName);
+            // Anagram anagram = new("XMAS");
+            //Part 1 "Cardinals" starts a N
+            // anagram.CheckAnagram(myWordMap, "N", 'X');
+            //Part 2 "Ordinals: starts at NE
+            Anagram xAnagram = new("MAS");
+            xAnagram.CheckAnagram(myWordMap, "NE", 'A');
+        }
+    }
+}

@@ -1,241 +1,24 @@
 // See https://aka.ms/new-console-template for more information
 
 using System;
+using AnagramClass;
 using MapPlanClass;
 
-namespace AdventOfCodeDay4
+namespace AdventofCode
 {
-    class Anagram
-    {
-        // counting the anagram
-        public int numberOfAnagram;
-
-        // the reference to check against
-        public char[] myAnagram;
-
-        public int anagramLength;
-
-        public Anagram(string word)
-        { //init
-            numberOfAnagram = 0;
-            myAnagram = word.ToArray();
-            anagramLength = word.Length;
-            //BL
-            Console.WriteLine("Anagram Length: {0}", anagramLength);
-        }
-
-        public void CheckAnagram(MapPlan myWordMap, string ordinals, char firstLetter)
-        {
-            Console.WriteLine("Start Anagram Count");
-            // test one location
-            // gridNavidation(5, 6, "N", myWordMap);
-            // iterate over the wordMap.
-            // outer for loop
-            for (int i = 0; i < myWordMap.Plan.Length; i++)
-            {
-                // inner for loop
-                for (int j = 0; j < myWordMap.Plan[i].Length; j++)
-                {
-                    //Console.Write(myWordMap.Plan[i][j]);
-                    if (IsTheFistLetterCorrect(myWordMap.Plan[i][j], firstLetter))
-                    {
-                        //gridNavidation(i, j, ordinals, myWordMap);
-                        crossNavidation(i, j, ordinals, myWordMap);
-                    }
-                }
-                //Console.WriteLine();
-            }
-        }
-
-        public bool IsTheFistLetterCorrect(char letter, char firstLetter)
-        {
-            var isCorrect = false;
-            if (letter == firstLetter)
-            {
-                isCorrect = true;
-            }
-            // Console.WriteLine("IsTheFistLetterCorrect: " + isCorrect);
-
-            return isCorrect;
-        }
-
-        public void ItIsAnAnagram(char[] word)
-        {
-            var validAnagram = true;
-            for (int i = 0; i < anagramLength; i++)
-            {
-                validAnagram = validAnagram & (myAnagram[i] == word[i]);
-            }
-
-            if (validAnagram)
-            {
-                numberOfAnagram += 1;
-                Console.WriteLine(
-                    "Word: {1}{2}{3} {0}, Count: {4}.",
-                    validAnagram,
-                    word[0],
-                    word[1],
-                    word[2],
-                    numberOfAnagram
-                );
-            }
-            ;
-        }
-
-        public void gridNavidation(int yCord, int xCord, string cardinal, MapPlan myWordMap)
-        {
-            var gridWord = new char[anagramLength];
-            gridWord[0] = myWordMap.ReadMap(yCord, xCord);
-
-            switch (cardinal)
-            {
-                case "N":
-                    {
-                        Console.Write("dir N: [0]:{0}, ", gridWord[0]);
-                        for (int i = 1; i < anagramLength; i++)
-                        {
-                            gridWord[i] = myWordMap.ReadMap(yCord - i, xCord);
-                            Console.Write("[{0}]:{1}, ", i, gridWord[i]);
-                        }
-
-                        ItIsAnAnagram(gridWord);
-                        Console.WriteLine();
-                        goto case "E";
-                    }
-                    ;
-                case "E":
-                {
-                    Console.Write("dir E: [0]:{0}, ", gridWord[0]);
-                    for (int i = 1; i < anagramLength; i++)
-                    {
-                        gridWord[i] = myWordMap.ReadMap(yCord, xCord + i);
-                        Console.Write("[{0}]:{1}, ", i, gridWord[i]);
-                    }
-                    ItIsAnAnagram(gridWord);
-                    Console.WriteLine();
-                    goto case "S";
-                }
-                case "S":
-                {
-                    Console.Write("dir S: [0]:{0}, ", gridWord[0]);
-                    for (int i = 1; i < anagramLength; i++)
-                    {
-                        gridWord[i] = myWordMap.ReadMap(yCord + i, xCord);
-                        Console.Write("[{0}]:{1}, ", i, gridWord[i]);
-                    }
-                    ItIsAnAnagram(gridWord);
-                    Console.WriteLine();
-                    goto case "W";
-                }
-
-                case "W":
-                {
-                    Console.Write("dir W: [0]:{0}, ", gridWord[0]);
-                    for (int i = 1; i < anagramLength; i++)
-                    {
-                        gridWord[i] = myWordMap.ReadMap(yCord, xCord - i);
-                        Console.Write("[{0}]:{1}, ", i, gridWord[i]);
-                    }
-                    ItIsAnAnagram(gridWord);
-                    Console.WriteLine();
-                    goto case "NE";
-                }
-                // Ordinals
-                case "NE":
-                {
-                    Console.Write("dir NE: [0]:{0}, ", gridWord[0]);
-                    for (int i = 1; i < anagramLength; i++)
-                    {
-                        gridWord[i] = myWordMap.ReadMap(yCord - i, xCord + i);
-                        Console.Write("[{0}]:{1}, ", i, gridWord[i]);
-                    }
-                    ItIsAnAnagram(gridWord);
-                    Console.WriteLine();
-                    goto case "SE";
-                }
-                case "SE":
-                {
-                    Console.Write("dir SE: [0]:{0}, ", gridWord[0]);
-                    for (int i = 1; i < anagramLength; i++)
-                    {
-                        gridWord[i] = myWordMap.ReadMap(yCord + i, xCord + i);
-                        Console.Write("[{0}]:{1}, ", i, gridWord[i]);
-                    }
-                    ItIsAnAnagram(gridWord);
-                    Console.WriteLine();
-                    goto case "SW";
-                }
-                case "SW":
-                {
-                    Console.Write("dir SW: [0]:{0}, ", gridWord[0]);
-                    for (int i = 1; i < anagramLength; i++)
-                    {
-                        gridWord[i] = myWordMap.ReadMap(yCord + i, xCord - i);
-                        Console.Write("[{0}]:{1}, ", i, gridWord[i]);
-                    }
-                    ItIsAnAnagram(gridWord);
-                    Console.WriteLine();
-                    goto case "NW";
-                }
-                case "NW":
-                {
-                    Console.Write("dir NW: [0]:{0}, ", gridWord[0]);
-                    for (int i = 1; i < anagramLength; i++)
-                    {
-                        gridWord[i] = myWordMap.ReadMap(yCord - i, xCord - i);
-                        Console.Write("[{0}]:{1}, ", i, gridWord[i]);
-                    }
-                    ItIsAnAnagram(gridWord);
-                    Console.WriteLine();
-                    break;
-                }
-            }
-        }
-
-        public void crossNavidation(int yCord, int xCord, string cardinal, MapPlan myWordMap)
-        {
-            var gridWord = new char[anagramLength];
-
-            switch (cardinal)
-            {
-                // Ordinals
-                case "NE":
-                {
-                    gridWord[0] = myWordMap.ReadMap(yCord - 1, xCord + 1);
-                    gridWord[1] = myWordMap.ReadMap(yCord, xCord);
-                    gridWord[2] = myWordMap.ReadMap(yCord, xCord);
-                    ItIsAnAnagram(gridWord);
-                    Console.WriteLine();
-                    break;
-                    //goto case "SE";
-                }
-                case "SE":
-                {
-                    goto case "SW";
-                }
-                case "SW":
-                {
-                    goto case "NW";
-                }
-                case "NW":
-                {
-                    break;
-                }
-            }
-        }
-    }
-
     class Program
     {
         static void Main(string[] args)
         {
-            string fileName = "day04_example.txt";
+            // string fileName = "day04_example.txt";
+            string fileName = "day04_input.txt";
             MapPlan myWordMap = new MapPlan(fileName);
-            Anagram anagram = new("MAS");
+            // Anagram anagram = new("XMAS");
             //Part 1 "Cardinals" starts a N
             // anagram.CheckAnagram(myWordMap, "N", 'X');
             //Part 2 "Ordinals: starts at NE
-            anagram.CheckAnagram(myWordMap, "NE", 'A');
+            Anagram xAnagram = new("MAS");
+            xAnagram.CheckAnagram(myWordMap, "NE", 'A');
         }
     }
 }

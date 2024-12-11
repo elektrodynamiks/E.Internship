@@ -1,6 +1,5 @@
 ﻿using System;
 using CartesianMapClass;
-using NavigationClass;
 
 namespace AdventofCode
 {
@@ -13,7 +12,6 @@ namespace AdventofCode
             // Part I
             var fileName = fileExample;
             CartesianMap myMap = new CartesianMap(fileName);
-            Navigation myNav = new Navigation(myMap);
         }
     }
 }

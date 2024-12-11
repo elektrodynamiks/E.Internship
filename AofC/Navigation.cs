@@ -14,22 +14,19 @@ namespace NavigationClass
 
     public class Navigation
     {
-        public List<int[]> pathWay;
         public int[] startPoint;
         public char track = 'X';
 
-        public Navigation(CartesianMap cartesianMap)
+        public Navigation(string fileName)
         {
             Console.WriteLine("Navigation Class initialized!");
-            Trek startPosition = new Trek();
-
-            var navPlan = cartesianMap.Plan;
-            var myRoute = cartesianMap.CreateRoute();
-            startPosition = FindStartingPoint(navPlan);
-            myRoute[startPosition.abscissa][startPosition.ordinate] = track;
-            cartesianMap.PrintMapPlan(myRoute);
-            Patrolling(navPlan, startPosition);
-            cartesianMap.TrekRouteLength(myRoute);
+            // Trek startPosition = new Trek();
+            // var navPlan = cartesianMap.Plan;
+            // var myRoute = cartesianMap.CreateRoute();
+            // startPosition = FindStartingPoint(navPlan);
+            // myRoute[startPosition.abscissa][startPosition.ordinate] = track;
+            // cartesianMap.PrintMapPlan(myRoute);
+            // cartesianMap.TrekRouteLength(myRoute);
         }
 
         public Trek FindStartingPoint(char[][] navPlan, char startChar = '^')

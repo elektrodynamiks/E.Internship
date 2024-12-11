@@ -1,12 +1,12 @@
-using MapPlanClass;
+using CartesianMapClass;
 
 namespace NavigationClass
 {
     public class Trek
     {
         public char direction = '^';
-        public int yCord;
-        public int xCord;
+        public int abscissa;
+        public int ordinate;
         public int step = 1;
         public char obstacle = ' ';
         public bool motion = false;
@@ -16,14 +16,20 @@ namespace NavigationClass
     {
         public List<int[]> pathWay;
         public int[] startPoint;
+        public char track = 'X';
 
-        public Navigation(MapPlan myPlan)
+        public Navigation(CartesianMap cartesianMap)
         {
             Console.WriteLine("Navigation Class initialized!");
-            char[][] navPlan = myPlan.Plan;
-
             Trek startPosition = new Trek();
+
+            var navPlan = cartesianMap.Plan;
+            var myRoute = cartesianMap.CreateRoute();
             startPosition = FindStartingPoint(navPlan);
+            myRoute[startPosition.abscissa][startPosition.ordinate] = track;
+            cartesianMap.PrintMapPlan(myRoute);
+            Patrolling(navPlan, startPosition);
+            cartesianMap.TrekRouteLength(myRoute);
         }
 
         public Trek FindStartingPoint(char[][] navPlan, char startChar = '^')
@@ -39,13 +45,13 @@ namespace NavigationClass
                 {
                     if (navPlan[i][j] == startChar)
                     {
-                        startPoint.xCord = j;
-                        startPoint.yCord = i;
+                        startPoint.abscissa = j;
+                        startPoint.ordinate = i;
                         Console.WriteLine(
-                            "Starting Point dir:{0}, Postion y,x:{1},{2}",
+                            "Starting Point dir:{0}, Postion X,Y: {1},{2}",
                             startPoint.direction,
-                            startPoint.yCord,
-                            startPoint.xCord
+                            startPoint.ordinate,
+                            startPoint.abscissa
                         );
                         return startPoint;
                     }
@@ -55,7 +61,13 @@ namespace NavigationClass
             return startPoint;
         }
 
-        public void Patrolling(char[][] navPlan, Trek position) { }
+        public void Patrolling(char[][] navPlan, Trek position)
+        {
+            // find next location
+            // check for obstacle
+            // return the next location.
+            // iterate until leaving the plan
+        }
 
         public int[] nextLocation(char[][] navPlan, char direction)
         {
@@ -63,16 +75,16 @@ namespace NavigationClass
             {
                 case '>':
                     //
-                    return [1, 1];
+                    return [1, 0];
                 case 'v':
                     //
-                    return [1, 1];
+                    return [1, 0];
                 case '<':
                     //
-                    return [1, 1];
+                    return [0, -1];
                 case '^':
                     //
-                    return [1, 1];
+                    return [-1, 0];
                 default:
                     return [0, 0];
             }

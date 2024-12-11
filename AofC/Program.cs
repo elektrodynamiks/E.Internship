@@ -1,5 +1,5 @@
 ﻿using System;
-using MapPlanClass;
+using CartesianMapClass;
 using NavigationClass;
 
 namespace AdventofCode
@@ -9,11 +9,11 @@ namespace AdventofCode
         static void Main(string[] args)
         {
             string fileExample = "day06_example.txt";
-            string filePuzzle = "day06_input.txt";
+            // string filePuzzle = "day06_input.txt";
             // Part I
             var fileName = fileExample;
-            MapPlan myPlan = new MapPlan(fileName);
-            Navigation myNav = new Navigation(myPlan);
+            CartesianMap myMap = new CartesianMap(fileName);
+            Navigation myNav = new Navigation(myMap);
         }
     }
 }

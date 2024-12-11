@@ -1,4 +1,5 @@
 namespace CartesianMapClass
+//Positive in quadrant IV from origin
 {
     public class CartesianMap
     {
@@ -17,6 +18,8 @@ namespace CartesianMapClass
             get { return mapSize; }
             // set { mapSize = value; }
         }
+        public int trekLength = 0;
+        public char track = 'X';
 
         public CartesianMap(string mapFileName)
         {
@@ -39,11 +42,16 @@ namespace CartesianMapClass
             var ordinate = mapSize[0];
             var abscissa = mapSize[1];
             char[][] jaggedArray = new char[ordinate][];
-            for (int j = 0; j < ordjnate; j++)
+            for (int j = 0; j < ordinate; j++)
             {
                 jaggedArray[j] = new char[abscissa];
             }
             return jaggedArray;
+        }
+
+        public char[][] CreateRoute()
+        {
+            return initializePlan(MapSize);
         }
 
         public char[][] CreateMapPlan(string mapFileName)
@@ -52,19 +60,19 @@ namespace CartesianMapClass
             var result = initializePlan(mapSize);
             // read the map and assign the content
             IEnumerable<string> lines = File.ReadLines(mapFileName);
-            var ordinate = 0;
+            var row = 0;
             foreach (var line in lines)
             {
                 // Console.WriteLine(line);
-                char[] abscissas = line.ToArray();
-                var abscissa = 0;
-                foreach (var abscissa in abscissas)
+                char[] ordinates = line.ToArray();
+                var col = 0;
+                foreach (var ordinate in ordinates)
                 {
-                    result[abscissa][ordinate] = abscissa;
-                    Console.Write("[{0},{1}] {2} ", ordinate, abscissa, result[abscissa][ordinate]);
-                    abscissa += 1;
+                    result[col][row] = ordinate;
+                    Console.Write("[{0},{1}] {2} ", col, row, result[col][row]);
+                    col += 1;
                 }
-                ordinate += 1;
+                row += 1;
                 Console.WriteLine();
             }
             // PrintMapPlan(result);
@@ -81,6 +89,7 @@ namespace CartesianMapClass
                 {
                     Console.Write(jaggedArray[i][j] + " ");
                 }
+                Console.WriteLine();
             }
         }
 
@@ -130,6 +139,22 @@ namespace CartesianMapClass
                     break;
             }
             return null;
+        }
+
+        public void TrekRouteLength(char[][] myRoute, char track = 'X')
+        {
+            for (int i = 0; i < myRoute.Length; i++)
+            {
+                // inner for loop
+                for (int j = 0; j < myRoute[i].Length; j++)
+                {
+                    if (myRoute[i][j] == track)
+                    {
+                        trekLength++;
+                    }
+                }
+            }
+            Console.WriteLine("The trake measure: {0}", trekLength);
         }
     }
 }

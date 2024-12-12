@@ -1,5 +1,5 @@
 ﻿using System;
-using CartesianMapClass;
+using AntennaMapClass;
 
 namespace AdventofCode
 {
@@ -7,11 +7,11 @@ namespace AdventofCode
     {
         static void Main(string[] args)
         {
-            string fileExample = "day06_example.txt";
-            string filePuzzle = "day06_input.txt";
+            string fileExample = "day08_example.txt";
+            string filePuzzle = "day08_input.txt";
             // Part I
             var fileName = filePuzzle;
-            CartesianMap myMap = new CartesianMap(fileName);
+            AntennaMap myMap = new AntennaMap(fileExample);
         }
     }
 }

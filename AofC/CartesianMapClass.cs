@@ -35,7 +35,7 @@ namespace CartesianMapClass
             myRoute = CreateRoute();
             // Find where the char '^' is
             startPoint = FindStartingPoint();
-            // myRoute[startPoint.abscissa][startPoint.ordinate] = track;
+            navPlan[startPoint.abscissa][startPoint.ordinate] = '.';
             Patrolling(startPoint);
             PrintMapPlan(myRoute);
             TrekRouteLength(myRoute);
@@ -116,8 +116,13 @@ namespace CartesianMapClass
         public bool inBounds(int abscissa, int ordinate)
         {
             // inside the map
-            return (0 <= abscissa && abscissa < mapSize[1])
-                & (0 <= ordinate && ordinate < mapSize[0]);
+            bool insideY = (0 <= ordinate && ordinate < mapSize[1]);
+            bool insideX = (0 <= abscissa && abscissa < mapSize[0]);
+            Console.WriteLine("abscissa:{0}, mapSize[0]:{1}", abscissa, mapSize[0]);
+            Console.WriteLine("ordinate:{0}, mapSize[1]:{1}", ordinate, mapSize[0]);
+            Console.WriteLine("[{0},{1}] insideX:{2}", abscissa, ordinate, insideX);
+            Console.WriteLine("[{0},{1}] insideY:{2}", abscissa, ordinate, insideY);
+            return insideY;
         }
 
         public char ReadMap(int ordinate, int abscissa)
@@ -176,14 +181,25 @@ namespace CartesianMapClass
 
         public void Patrolling(Trek position)
         {
-            for (int i = 0; i < 6; i++)
+            bool exit = true;
+            try
             {
-                Console.WriteLine("inbound: {0}", inBounds(position.abscissa, position.ordinate));
-                myRoute[position.abscissa][position.ordinate] = 'X';
-                Console.WriteLine("idx:{0} x: {1}", i, position.abscissa);
-
-                checkNextLocation(navPlan, position);
+                do
+                {
+                    Console.WriteLine(
+                        "inbound: {0}",
+                        inBounds(position.abscissa, position.ordinate)
+                    );
+                    myRoute[position.abscissa][position.ordinate] = 'X';
+                    checkNextLocation(navPlan, position);
+                } while (exit);
             }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                exit = false;
+            }
+
             // find next location
             // check for obstacle
             // return the next location.
@@ -204,11 +220,74 @@ namespace CartesianMapClass
                     position.ordinate - 1,
                     obstacle
                 );
-                position.ordinate--;
+                if (obstacle == '.')
+                {
+                    position.ordinate--;
+                }
+                if (obstacle == '#')
+                {
+                    position.direction = '>';
+                }
+            }
+            if (direction == '>')
+            {
+                obstacle = navPlan[position.abscissa + 1][position.ordinate];
+                Console.WriteLine(
+                    "next position [{0},{1}]:{2}",
+                    position.abscissa + 1,
+                    position.ordinate,
+                    obstacle
+                );
+                if (obstacle == '.')
+                {
+                    position.abscissa++;
+                }
+                if (obstacle == '#')
+                {
+                    position.direction = 'v';
+                }
+            }
+            if (direction == 'v')
+            {
+                obstacle = navPlan[position.abscissa][position.ordinate + 1];
+                Console.WriteLine(
+                    "next position [{0},{1}]:{2}",
+                    position.abscissa,
+                    position.ordinate + 1,
+                    obstacle
+                );
+                if (obstacle == '.')
+                {
+                    position.ordinate++;
+                }
+                if (obstacle == '#')
+                {
+                    position.direction = '<';
+                }
+            }
+            if (direction == '<')
+            {
+                obstacle = navPlan[position.abscissa - 1][position.ordinate];
+                Console.WriteLine(
+                    "next position [{0},{1}]:{2}",
+                    position.abscissa - 1,
+                    position.ordinate,
+                    obstacle
+                );
+                if (obstacle == '.' || obstacle == '^')
+                {
+                    position.abscissa--;
+                }
+
+                if (obstacle == '#')
+                {
+                    position.direction = '^';
+                }
             }
         }
     }
 }
+
 
 
 /* terms

@@ -1,5 +1,5 @@
 ﻿using System;
-using AntennaMapClass;
+using AofC.Models;
 
 namespace AdventofCode
 {
@@ -11,7 +11,7 @@ namespace AdventofCode
             string filePuzzle = "day08_input.txt";
             // Part I
             var fileName = filePuzzle;
-            AntennaMap myMap = new AntennaMap(fileExample);
+            Map myMap = new Map(fileExample);
         }
     }
 }

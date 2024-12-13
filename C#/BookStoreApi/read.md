@@ -13,8 +13,14 @@ dotnet run --launch-profile https
 https://learn.microsoft.com/en-us/training/modules/build-web-api-aspnet-core/3-exercise-create-web-api
 
 CLI:
-dotnet new webapi -o BookStoreApi --no-openapi true
+// dotnet new webapi -o BookStoreApi --no-openapi true
+dotnet new webapi -o BookStoreApi
 code BookStoreApi
+
+# Add MongoDB to the project
+
+NET CLI:
+dotnet add package MongoDB.Driver
 
 # Add Swagger to the project.
 

@@ -14,6 +14,7 @@ namespace AofC.Models
             map = CreateMap(mapFileName);
             PrintMapPlan(map);
 
+
         }
 
         public int[] GetmapSize(string mapFileName)
@@ -84,6 +85,16 @@ namespace AofC.Models
                 Console.WriteLine();
             }
         }
+         public bool inBounds(int abscissa, int ordinate, int[] mapSize)
+                {
+                    // inside the map
+
+                    bool insideX = (0 <= abscissa && abscissa < mapSize[0]);
+                     bool insideY = (0 <= ordinate && ordinate < mapSize[1]);
+
+                    Console.WriteLine("[{0},{1}] insideX:{2}", abscissa, ordinate, insideX && insideY);
+                    return  insideX && insideY;
+                }
 
 
     }

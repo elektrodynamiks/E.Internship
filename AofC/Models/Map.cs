@@ -29,7 +29,7 @@ namespace AofC.Models
         public char[][] CreateMap(string mapFileName)
         {
             // initialize the mapPlan
-            var result = initializeMap(mapSize);
+            var result = initializeMap();
             // read the map and assign the content
             IEnumerable<string> lines = File.ReadLines(mapFileName);
             var row = 0;
@@ -55,10 +55,10 @@ namespace AofC.Models
 
         public char[][] CreateEmptyMap()
         {
-            return initializeMap(mapSize);
+            return initializeMap();
         }
 
-        public char[][] initializeMap(int[] mapSize)
+        public char[][] initializeMap()
         {
             var ordinate = mapSize[0];
             var abscissa = mapSize[1];
@@ -85,7 +85,7 @@ namespace AofC.Models
                 Console.WriteLine();
             }
         }
-         public bool inBounds(int abscissa, int ordinate, int[] mapSize)
+         public bool inBounds(int abscissa, int ordinate)
                 {
                     // inside the map
 

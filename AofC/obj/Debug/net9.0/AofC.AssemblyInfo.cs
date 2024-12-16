@@ -13,11 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AofC")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-<<<<<<< HEAD
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1920d6dede5c6c116c3068144d0a83b37a3b7dbc")]
-=======
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c652660ea73ebbd97e8fa30a432de73666add7fc")]
->>>>>>> refs/remotes/origin/main
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+547563940caf87bd61e512961621ba789f2c6ab9")]
 [assembly: System.Reflection.AssemblyProductAttribute("AofC")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AofC")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

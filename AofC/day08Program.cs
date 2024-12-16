@@ -4,7 +4,7 @@ using AofC.Models;
 
 namespace AofC
 {
-    
+
     public class AofCDay08
     {
         private Map myMap;
@@ -12,7 +12,7 @@ namespace AofC
         private char[][] antinodes;
         private char[][] harmonicsResonance;
         private int antinodeCount = 0;
-        
+
         List<int[]> positions;
         private Dictionary<char, List<int[]>> antennas;
 
@@ -20,32 +20,32 @@ namespace AofC
         {
             string fileExample = "day08_example.txt";
             string filePuzzle = "day08_input.txt";
-            var fileName = fileExample;
-            // var fileName = filePuzzle;
-           
+            //var fileName = fileExample;
+             var fileName = filePuzzle;
+
             myMap = new Map(fileName);
             map = myMap.map;
             antinodes = myMap.initializeMap();
-            harmonicsResonance= myMap.initializeMap();
-            Day08Part1();
-            //Day08Part2();
+            harmonicsResonance = myMap.initializeMap();
+            //Day08Part1();
+            Day08Part2();
         }
 
         private void Day08Part1()
         {
-            
+
             // read the map and store positions for each antenna
             // antennas are stored in dictionary with key as char named: 'antenna'.
             // each antennas has positions [x,y] int[] of size 2 stored in a lis
             FindAntennaPositions();
-           
-            
+
+
             // Fin antinodes for each antenna
-            FindSameFrequencyAntinodes();
-            myMap.PrintMapPlan(antinodes);
-            FindDifferenteFrequencyAntinodes();
-            
+            FindFrequencyAntinodes();
+           
+
             // print the final number
+            myMap.PrintMapPlan(antinodes);
             CountAntinodes();
             Console.WriteLine(antinodeCount);
         }
@@ -54,15 +54,19 @@ namespace AofC
         {
             FindAntennaPositions();
             // Find  Harmonics Resonance
-            FindHarmonicsResonance();
+            FindFrequencyAntinodes("part2");
+            // print anc count
+            myMap.PrintMapPlan(antinodes);
+            CountAntinodes();
+            Console.WriteLine(antinodeCount);
         }
 
 
         private void FindAntennaPositions()
         {
-            antennas= new Dictionary<char, List<int[]>>();
-           
-            
+            antennas = new Dictionary<char, List<int[]>>();
+
+
             // outer for loop abscissa
             for (int j = 0; j < map.Length; j++)
             {
@@ -80,21 +84,21 @@ namespace AofC
             }
         }
 
-        private void AddToAntennas(char antenna,int[] position )
+        private void AddToAntennas(char antenna, int[] position)
         {
             // add or create position for antenna 'char' 
             if (antennas.ContainsKey(antenna))
             {
                 positions = antennas[antenna];
                 positions.Add([position[0], position[1]]);
-                antennas[antenna]=positions;
-               // Console.WriteLine($"Position added to antenna '{antenna}'");
+                antennas[antenna] = positions;
+                // Console.WriteLine($"Position added to antenna '{antenna}'");
             }
             else
             {
                 positions = new List<int[]>();
                 positions.Add([position[0], position[1]]);
-                antennas.Add(antenna, positions );
+                antennas.Add(antenna, positions);
                 // Console.WriteLine("New antenna created");
             }
 
@@ -116,20 +120,30 @@ namespace AofC
             if (positions.Count != 0)
             {
                 foreach (var pos in positions)
-                Console.Write($"[{pos[0]}, {pos[1]}]");
+                    Console.Write($"[{pos[0]}, {pos[1]}]");
             }
         }
 
-        private void FindSameFrequencyAntinodes()
+        private void FindFrequencyAntinodes(string part = "part1")
         {
-            foreach  (var key in antennas.Keys)
-                for (var index=0; index < antennas[key].Count; index += 1)
-                    for (var target=index + 1; target < antennas[key].Count; target += 1 )
+            foreach (var key in antennas.Keys)
+                for (var index = 0; index < antennas[key].Count; index += 1)
+                {
+                    for (var target = index + 1; target < antennas[key].Count; target += 1)
                     {
                         var antennaList = antennas[key];
-                        //Console.WriteLine($"Compare for '{key}': List[{index}] with List[{target}]");
-                        Antinodes(antennaList[index], antennaList[target]);
+                        Console.WriteLine($"Compare for '{key}': List[{index}] with List[{target}]");
+                        if (part == "part1")
+                        {
+                            Antinodes(antennaList[index], antennaList[target]);
+                        }
+
+                        if (part == "part2")
+                        {
+                            HarmonicsResonance(antennaList[index], antennaList[target]);
+                        }
                     }
+                }
         }
 
         private void Antinodes(int[] pos1, int[] pos2)
@@ -152,17 +166,18 @@ namespace AofC
                 var x = antinode[0];
                 var y = antinode[1];
                 antinodes[x][y] = '#';
-               
-              
+
+
             }
         }
+
         public void CountAntinodes(char track = '#')
         {
             for (int j = 0; j < antinodes.Length; j++)
             {
                 // inner for loop ordinate
                 for (int i = 0; i < antinodes[j].Length; i++)
-                
+
                 {
                     if (antinodes[i][j] == track)
                     {
@@ -170,27 +185,31 @@ namespace AofC
                     }
                 }
             }
+
             Console.WriteLine("Number of antinodes: {0}", antinodeCount);
         }
 
-        private void FindDifferenteFrequencyAntinodes()
-        {
-            //get all the existing frequencies
-            var listOfAntenna = new List<char>();
-            foreach  (var key in antennas.Keys) 
-                listOfAntenna.Add(key);
-            foreach (var element in listOfAntenna)
-                Console.Write(element);
-            
-        }
+    
 
-        private void FindHarmonicsResonance()
-        {
-        }
-        
+    private void HarmonicsResonance(int[] pos1, int[] pos2)
+    {
+        // linear function from pos1 and pos2
 
+        var xdistance = pos2[0] - pos1[0];
+                var ydistance = pos2[1] - pos1[1];
 
+                for (int i = -map.Length; i <= map.Length; i++)
+                {
+                    int[] antinode = [pos1[0] - xdistance*i, pos1[1] - ydistance*i];
+                  
+                    MarkAntinodes(antinode);
+                    
+                }
+           
+           
+    }
 
+       
 
     }
 }

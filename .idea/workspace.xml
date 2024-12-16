@@ -7,10 +7,31 @@
     <list default="true" id="18be7fa7-a7a4-425e-a4bd-9f47d4a6a4b0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AofC/Models/Map.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AofC/Models/Map.cs" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/AofC/day08Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AofC/day08Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AofC/obj/Debug/net9.0/AofC.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AofC/obj/Debug/net9.0/AofC.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AofC/obj/Debug/net9.0/AofC.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/AofC/obj/Debug/net9.0/AofC.AssemblyInfoInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AofC/obj/Debug/net9.0/AofC.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/AofC/obj/Debug/net9.0/AofC.sourcelink.json" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/AofC/obj/AofC.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/AofC/obj/AofC.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AofC/obj/AofC.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/AofC/obj/AofC.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AofC/obj/Debug/net9.0/AofC.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AofC/obj/Debug/net9.0/AofC.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AofC/obj/Debug/net9.0/AofC.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/AofC/obj/Debug/net9.0/AofC.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AofC/obj/Debug/net9.0/AofC.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/AofC/obj/Debug/net9.0/AofC.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AofC/obj/Debug/net9.0/AofC.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/AofC/obj/Debug/net9.0/AofC.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AofC/obj/Debug/net9.0/AofC.genruntimeconfig.cache" beforeDir="false" afterPath="$PROJECT_DIR$/AofC/obj/Debug/net9.0/AofC.genruntimeconfig.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AofC/obj/Debug/net9.0/AofC.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/AofC/obj/Debug/net9.0/AofC.sourcelink.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AofC/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/AofC/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AofC/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/AofC/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/C#/MyFirstProgram/obj/Debug/net9.0/MyFirstProgram.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/C#/MyFirstProgram/obj/Debug/net9.0/MyFirstProgram.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/C#/MyFirstProgram/obj/Debug/net9.0/MyFirstProgram.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/C#/MyFirstProgram/obj/Debug/net9.0/MyFirstProgram.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/C#/MyFirstProgram/obj/Debug/net9.0/MyFirstProgram.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/C#/MyFirstProgram/obj/Debug/net9.0/MyFirstProgram.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/C#/MyFirstProgram/obj/Debug/net9.0/MyFirstProgram.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/C#/MyFirstProgram/obj/Debug/net9.0/MyFirstProgram.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/C#/MyFirstProgram/obj/MyFirstProgram.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/C#/MyFirstProgram/obj/MyFirstProgram.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/C#/MyFirstProgram/obj/MyFirstProgram.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/C#/MyFirstProgram/obj/MyFirstProgram.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/C#/MyFirstProgram/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/C#/MyFirstProgram/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/C#/MyFirstProgram/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/C#/MyFirstProgram/obj/project.nuget.cache" afterDir="false" />
+>>>>>>> refs/remotes/origin/main
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +64,7 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< HEAD
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
@@ -57,6 +79,22 @@
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+=======
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/nakharinh.phomsouvanh/Code",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
+>>>>>>> refs/remotes/origin/main
   },
   &quot;keyToStringList&quot;: {
     &quot;stardust.markdown.MarkdownSplitEditorSuppressor:keyList&quot;: []
@@ -79,6 +117,17 @@
   </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>

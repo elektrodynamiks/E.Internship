@@ -85,7 +85,11 @@ namespace AofC.Models
                 Console.WriteLine();
             }
         }
+<<<<<<< HEAD
          public bool inBounds(int abscissa, int ordinate)
+=======
+         public bool inBounds(int abscissa, int ordinate, int[] mapSize)
+>>>>>>> refs/remotes/origin/main
                 {
                     // inside the map
 

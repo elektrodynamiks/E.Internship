@@ -8,7 +8,7 @@ namespace AofC
     {
         static void Main(string[] args)
         {
-         new AofCDay05();
+         new day05Program();
         }
     }
 }

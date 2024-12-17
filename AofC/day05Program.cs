@@ -7,13 +7,14 @@ using AofC.Models;
 namespace AofC
 {
 
-    public class AofCDay05
+    public class day05Program
     {
         List<int[]> rules;
         List<int[]> prints;
-        private List<int> validPrints;
+        List<int[]> validPrints;
+        List<int> validPrintsMiddlePage;
 
-        public AofCDay05()
+        public day05Program()
         {
             string fileExample = "day05Example.txt";
 
@@ -68,9 +69,9 @@ namespace AofC
                         foreach (Match match in Regex.Matches(line, patternPrint))
                         {
                             Print.Add(Int32.Parse(match.Value));
+                           
                             //Console.WriteLine("Found '{0}' at position {1}", match.Value, match.Index);
                         }
-
                         prints.Add(Print.ToArray());
                     }
                 }
@@ -81,20 +82,34 @@ namespace AofC
         }
 
         private void CheckPrints()
-        {
+        {   bool valid = true;
             foreach (var print in prints)
             {
-              
-                for (int index = 0; index <= print.Count(); index += 1)
+                for (int index = 0; index < print.Count(); index += 1)
                 {
-                    for (int target = index + 1; target <= print.Count(); target += 1)
+                    for (int target = index + 1; target < print.Count(); target += 1)
                     {
-                        Console.WriteLine($"Compare for print: page[{index}] with page[{target}]");
+                        valid = valid && CheckRulesForPrint(print[index], print[target]);
+                        Console.WriteLine($"Compare for print: page[{print[index]}] | [{print[target]}]: {valid}");
+
                     }
+
                 }
             }
         }
+
+        private bool CheckRulesForPrint(int firstPage, int secondPage)
+        {
+            var valid = true;
+            foreach (var rule in rules)
+            {
+                // if page 
+                rule
+            }
+            return valid;
+        }
     }
+    
 }
 /* iterate a list
        foreach (var element in list)

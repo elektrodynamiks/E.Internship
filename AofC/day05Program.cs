@@ -215,4 +215,9 @@ namespace AofC
    or like an array
        for (int index = 0; index < list.Count; index += 1)
            Console.Write(list[index]);
+    iterate a dictionary        
+foreach(KeyValuePair<string, string> ele2 in My_dict2)
+  {
+    Console.WriteLine("{0} and {1}", ele2.Key, ele2.Value);
+    }
 */

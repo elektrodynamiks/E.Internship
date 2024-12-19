@@ -7,7 +7,7 @@ using AofC.Models;
 namespace AofC
 {
 
-    public class day09Program
+    public class Day09Program
     {
         List<int> diskMap;
         List<int> diskBlockFile;
@@ -20,7 +20,7 @@ namespace AofC
 
         // part 2 
 
-        public day09Program()
+        public Day09Program()
         {
             string fileExample = "Day09Example.txt";
 
@@ -92,11 +92,8 @@ namespace AofC
                     {
                         var id = fileSystemListPart2.Count - 1 - i;
                         var value = fileSystemListPart2[id];
-
                         var ind = value[0];
                         var length = value[1];
-
-
                         for (int idfree = 0; idfree < id; idfree++)
                         {
 /*
@@ -280,7 +277,7 @@ namespace AofC
                     endIndex += fileLength;
                     // looking for empty spots at begining of file.
                 }
-               if (fileSystemList)
+               // if (fileSystemList)
               
             }
 

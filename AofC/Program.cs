@@ -8,8 +8,11 @@ namespace AofC
     {
         static void Main(string[] args)
         {
-         new day09Program();
-         
+         new Day19Program();
+         string fileExample = "Day09Example.txt";
+         string filePuzzle = "Day09Input.txt";
+         var fileName = fileExample;
+         //var fileName = filePuzzle;
         }
        
        

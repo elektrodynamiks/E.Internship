@@ -9,6 +9,10 @@ namespace AofC
         static void Main(string[] args)
         {
          new day09Program();
+         
         }
+       
+       
+        
     }
 }

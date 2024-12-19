@@ -13,8 +13,8 @@ namespace AofC
         List<int> diskBlockFile;
         List<int> diskBlockFreeSpace;
 
-        List<char> fileSystemList;
-         List<int> compactedFile;
+        List<string> fileSystemList;
+        List<string> compactedFile;
          List<int> checksumValue;
 
         // part 2 
@@ -25,8 +25,8 @@ namespace AofC
 
             string filePuzzle = "Day09Input.txt";
 
-            //var fileName = fileExample;
-             var fileName = filePuzzle;
+            // var fileName = fileExample;
+            var fileName = filePuzzle;
 
             // part 1
             Day09Part1(fileName);
@@ -41,8 +41,8 @@ namespace AofC
             diskMap = new List<int>();
             diskBlockFile = new List<int>();
             diskBlockFreeSpace = new List<int>();
-            fileSystemList= new List<char>();
-            compactedFile = new List<int>(); 
+            fileSystemList= new List<string>();
+            compactedFile = new List<string>(); 
             checksumValue = new List<int>(); 
 
             CreateDiskMap(fileName);
@@ -51,11 +51,11 @@ namespace AofC
             Checksum();
         }
 
-        private void DisplayListChar(List<char> aList)
+        private void DisplayListStr(List<string> aList)
         {
             foreach (var el in aList)
             {
-                Console.Write($"{el} ");
+                Console.Write($"|{el}| ");
             }
 
             Console.WriteLine();
@@ -82,8 +82,7 @@ namespace AofC
 
             }
 
-
-           
+            
             for (int index = 0; index < diskMap.Count; index++)
             {
                 if (int.IsEvenInteger(index))
@@ -96,6 +95,9 @@ namespace AofC
                 }
             }
 
+            Console.WriteLine($"diskMap : {diskMap.Count}");
+            Console.WriteLine($"diskBlockFile #: {diskBlockFile.Count} ");
+            Console.WriteLine($"diskBlockFreeSpace #: {diskBlockFreeSpace.Count} ");
             DisplayListInt(diskMap);
             DisplayListInt(diskBlockFile);
             DisplayListInt(diskBlockFreeSpace);
@@ -110,13 +112,10 @@ namespace AofC
                 
                 for (var fileLength = 0; fileLength < diskBlockFile[index]; fileLength++)
                 {
+                   
+                        fileSystemList.Add(id);
+                        // Console.Write(id);
                     
-                    // 
-                    foreach (var digit in id)
-                    {
-                        fileSystemList.Add(digit);
-                        Console.Write(digit);
-                    }
                    
                 }
                 
@@ -124,98 +123,79 @@ namespace AofC
                 {
                     for (var blockLength = 0; blockLength < diskBlockFreeSpace[index]; blockLength++)
                     {
-                        fileSystemList.Add('.');
-                        Console.Write('.');
+                        fileSystemList.Add(".");
+                        // Console.Write(".");
                     }
                 }
 
                 
             }
 
-            //DisplayListChar(fileSystemList);
+            DisplayListStr(fileSystemList);
             Console.WriteLine();
-        }
-        private void CreateFileSystem_()
-        {
-           
-            for (int index = 0; index < diskBlockFile.Count; index++)
-            {
-                var id = Convert.ToChar(index % 10 + '0');
-                for (var fileLength = 0; fileLength < diskBlockFile[index]; fileLength++)
-                {
-                    
-                    fileSystemList.Add(id);
-                  
-                    // Console.Write(id);
-                }
-                
-                if (index < diskBlockFreeSpace.Count)
-                {
-                    for (var blockLength = 0; blockLength < diskBlockFreeSpace[index]; blockLength++)
-                    {
-                        fileSystemList.Add('.');
-                        //Console.Write('.');
-                    }
-                }
-            }
-
-            DisplayListChar(fileSystemList);
-        }
-
+        } 
+        
         private void FileCompacting()
         {
-          
+
             var leftIndex = 0;
             var rightIndex = fileSystemList.Count - 1;
-             while (leftIndex <= rightIndex)
-             {
-                 var disk = fileSystemList[leftIndex];
-                 if (disk != '.')
-                 {
-                     var block = (char)disk - '0';
-                     compactedFile.Add(block);
-                     leftIndex++;
-                 }
-                 else
-                 {
-                     var compacting = fileSystemList[rightIndex];
-                     if (compacting != '.')
-                     {
-                         var block = (char)compacting - '0';
-                         compactedFile.Add(block);
-                         rightIndex--;
-                         leftIndex++;
-                     }
-                     else
-                     {rightIndex--;
-                     }
-                 }
+            while (leftIndex <= rightIndex)
+            {
+                var disk = fileSystemList[leftIndex];
+                if (disk != ".")
+                {
+                   
+                    //Console.Write(disk);
+                     compactedFile.Add(disk);
+                    leftIndex++;
+                }
+                else
+                {
+                    var compacting = fileSystemList[rightIndex];
+                    if (compacting != ".")
+                    {
+                        
+                        //Console.Write(compacting);
+                        compactedFile.Add(compacting);
+                        rightIndex--;
+                        leftIndex++;
+                    }
+                    else
+                    {rightIndex--;
+                    }
+                }
 
-              
-             }
-             DisplayListInt(compactedFile);
+
+            }
+            DisplayListStr(compactedFile);
         }
+        
+     
+      
 
         private void Checksum()
         {
             //checksum
             long sum = 0;
-            
+
             for (int index = 0; index < compactedFile.Count; index += 1)
             {
-                var value = compactedFile[index] * index;
+                var fileId =   Int32.Parse(compactedFile[index]);
+                var value = fileId* index;
 
                 if (value != 0)
-                { sum = sum + value; 
+                { sum = sum + value;
                     checksumValue.Add(value);
                     //Console.Write($"index: {index}|{compactedFile[index]}, value: {value} ||");
                 }
-                
+
             }
             DisplayListInt(checksumValue);
             Console.WriteLine();
             Console.WriteLine($"The file checksum is: {sum}");
-            
+
         }
+        
     }
 }

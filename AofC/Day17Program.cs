@@ -19,15 +19,14 @@ namespace AofC
             //var fileName = fileExample;
             var fileName = filePuzzle;
 
-            CreatePuzzle(fileName);
-            Day19Part1();
+            Day17Part1();
 
         }
 
         private void Day17Part1()
         {
         }
-        private void Day17Part2()
+        private void Day17Part2(){}
     }
 }
 

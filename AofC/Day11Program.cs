@@ -50,19 +50,19 @@ namespace AofC
                 //var pebbles = blinks[blink];
                 var arrangement = new List<long>();
                 //List<object> arrangement = new List<object>();
-                for (int index = 0; index < pebbles.Count; index += 1) 
+                foreach (var stone in pebbles)
                 {
-                    var engrave = pebbles[index];
+                    
                     //Console.Write(engrave);
-                    if (pebbles[index] == 0)
+                    if (stone == 0)
                     {
                         arrangement.Add(1);
                         //Console.WriteLine($" 0 to 1");
                     }
-                    else if (((pebbles[index]).ToString().Length % 2) == 0)
+                    else if (((stone).ToString().Length % 2) == 0)
                     {
                         //Console.WriteLine($" odd digits");
-                        string digits = pebbles[index].ToString();
+                        string digits = stone.ToString();
                         int length = digits.Length;
                         int half = length / 2;
                         string digitLeft = digits.Substring(0, half);
@@ -74,7 +74,7 @@ namespace AofC
                     }
                     else
                     {   
-                        arrangement.Add(pebbles[index] * 2024);
+                        arrangement.Add(stone * 2024);
                         //Console.WriteLine($"  multiplied by 2024");
                     }
                     

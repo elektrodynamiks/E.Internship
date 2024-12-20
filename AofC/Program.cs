@@ -11,8 +11,6 @@ namespace AofC
          new Day19Program();
         
         }
-       
-       
         
     }
 }

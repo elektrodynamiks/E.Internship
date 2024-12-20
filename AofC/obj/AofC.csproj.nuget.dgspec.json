@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/nakharinh.phomsouvanh/Code/AofC/AofC.csproj": {}
+    "/Users/elektrodynamiks/Code/E.Internship/AofC/AofC.csproj": {}
   },
   "projects": {
-    "/Users/nakharinh.phomsouvanh/Code/AofC/AofC.csproj": {
+    "/Users/elektrodynamiks/Code/E.Internship/AofC/AofC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/nakharinh.phomsouvanh/Code/AofC/AofC.csproj",
+        "projectUniqueName": "/Users/elektrodynamiks/Code/E.Internship/AofC/AofC.csproj",
         "projectName": "AofC",
-        "projectPath": "/Users/nakharinh.phomsouvanh/Code/AofC/AofC.csproj",
-        "packagesPath": "/Users/nakharinh.phomsouvanh/.nuget/packages/",
-        "outputPath": "/Users/nakharinh.phomsouvanh/Code/AofC/obj/",
+        "projectPath": "/Users/elektrodynamiks/Code/E.Internship/AofC/AofC.csproj",
+        "packagesPath": "/Users/elektrodynamiks/.nuget/packages/",
+        "outputPath": "/Users/elektrodynamiks/Code/E.Internship/AofC/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/nakharinh.phomsouvanh/.nuget/NuGet/NuGet.Config"
+          "/Users/elektrodynamiks/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -36,7 +36,7 @@
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
-          "auditMode": "all"
+          "auditMode": "direct"
         },
         "SdkAnalysisLevel": "9.0.100"
       },
@@ -59,7 +59,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

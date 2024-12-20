@@ -12,8 +12,12 @@ namespace AofC
     {
         List<string> patterns;
         List<string> designs;
-        //List<string>matchingPattern;
+        List<string> validDesigns;
+        //List<string> combination;
+        List<string> distinctItems;
+     
         private int possibleDesign = 0;
+        private int possibleCombination = 0;
         
         public Day19Program()
         {
@@ -26,62 +30,127 @@ namespace AofC
             
             patterns = new List<string>();
             designs = new List<string>();
-         
+            validDesigns = new List<string>();
+          
             //Lists of patterns,designs    
             CreatePatternsDesigns(fileName);
+            CreateValidDesignList(validDesign);
             
-             Day19Part1();
-             
+            //Day19Part1();
+            Day19Part2();
 
+
+        }
+        private void Day19Part2()
+        {
+            var i = 0;
+            foreach (var valid in validDesigns)
+            {
+                if (i >= 0)
+                {
+                    CountPossibleCombination(valid);
+                }
+                //if (i >= 334) {break;}
+                i++;
+            }
+            Console.WriteLine(possibleCombination);
+        }
+
+        private void CountPossibleCombination(string valid)
+        {   distinctItems = new List<string>();
+            var i = 0;
+            Console.WriteLine($"creating: {valid}");
+            do
+            {   
+                
+                var matchPattern = GetThePatternIncluded(valid, "random");
+                var regexPattern = CreateRegexPatternPart2(matchPattern);
+                //Console.WriteLine(regexPattern);
+                CheckForPatternDesignMatchPart2(valid, regexPattern);
+                distinctItems.Sort();
+                distinctItems.Distinct().ToList();
+                i++;
+            } while (i <= 15000);
+
+            distinctItems.Sort();
+            distinctItems.Distinct().ToList();
+            var uniqueStrings = distinctItems.Distinct().ToList();
+            var items = 0;
+            foreach (var iterm in uniqueStrings)
+            {
+                items++;
+            }
+            possibleCombination += items;
+            Console.WriteLine(items);
+          
+            //DisplayListStr(uniqueStrings);
+        }
+        private void CheckForPatternDesignMatchPart2(string valid, string regexPattern)
+        {
+            var i = 0;
+            var run = true;
+            var combination = new List<string>(); 
+            do
+            { //CheckForPatternDesignMatch(design, regexPattern);
+               
+                string pattern = @regexPattern ;
+                foreach (Match match in Regex.Matches(valid, pattern, RegexOptions.Compiled))
+                {
+                    //Console.WriteLine("Found '{0}' at position {1}", match.Value, match.Index);
+                    combination.Add(match.Value);
+                    valid = valid.Replace(match.Value,"");
+                }
+
+                if (valid.Length == 0)
+                { 
+                    //Console.Write($"Pattern is matching!:  ");
+                    combination.Sort((x, y) => x.Length.CompareTo(y.Length));
+                    combination.Sort();
+                    run = false;
+                    //DisplayListStr(combination);
+                    var key = String.Concat(combination.ToArray());
+                    distinctItems.Add(key);
+                    //Console.WriteLine(key);
+                }
+                i++;
+            } while (i <= 100 && run);
+            
+           
         }
 
         private void Day19Part1()
         {
-           // check which pattern is included in design.
-           // => List<string> matchingPattern
            var i = 0;
            foreach (var design in designs)
            {
-               //var matchPattern = GetThePatternIncluded(design);
-               // Console.WriteLine(design);
-               // var regexPattern = CreateRegexPattern(matchPattern);
-               // Console.WriteLine(regexPattern);
-               // CheckForPatternDesignMatch(design, regexPattern);
              CheckForPatternDesignMatchRandom(design);
-              
                //if (i >= 10) {break;}
-
                i++;
            }
-
            Console.WriteLine(possibleDesign);
-
         }
+        
+
 
         private void CheckForPatternDesignMatchRandom(string design)
         {
             var i = 0;
             var match = false;
-            var order = "none";
+            var order = "decreasing";
             //Console.WriteLine($"creating: {design}");
             do
             {
-                if (i >= 1)
-                {
-                    order = "random"; }
-
-                
+                if (i >= 1) { order = "random"; }
                 var matchPattern = GetThePatternIncluded(design, order);
                 var regexPattern = CreateRegexPattern(matchPattern);
                 //Console.WriteLine(regexPattern);
                 match = CheckForPatternDesignMatch(design, regexPattern);
                 //Console.WriteLine($"try {i} :{match}");
                 i++;
-                
-            } while (i <= 150 && !match);
-
+            } while (i <= 5 && !match);
         }
 
+     
         private bool CheckForPatternDesignMatch(string design, string regexPattern)
         {
             var copy = design;
@@ -89,7 +158,7 @@ namespace AofC
             
             foreach (Match match in Regex.Matches(design, pattern, RegexOptions.Compiled))
             {
-                //Console.WriteLine("Found '{0}' at position {1}", match.Value, match.Index);
+                Console.WriteLine("Found '{0}' at position {1}", match.Value, match.Index);
                 design = design.Replace(match.Value,"");
             }
 
@@ -120,7 +189,6 @@ namespace AofC
             // order the list 
             if (order == "none")
             { 
-                matchingPattern.Sort((x, y) => y.Length.CompareTo(x.Length));
             }
             else if (order == "increasing")
             { 
@@ -153,10 +221,23 @@ namespace AofC
             regex += ")+";
             return regex;
         }
+        private string CreateRegexPatternPart2(List<string> matchingPattern)
+        {
+            string regex = "(";
+            foreach (var strPattern in matchingPattern )
+            {
+                regex += ($"({strPattern})|");
+            }
+
+            regex = regex.TrimEnd('|');
+            regex += ")";
+            return regex;
+        }
+
         private void CreatePatternsDesigns(string fileName)
         {
-            string Pattern= @"(\w)+";
-            
+            string Pattern = @"(\w)+";
+
             IEnumerable<string> lines = File.ReadLines(fileName);
             foreach (var line in lines)
             {
@@ -168,7 +249,7 @@ namespace AofC
                         // Console.WriteLine("Found '{0}' at position {1}", match.Value, match.Index);
                     }
                 }
-                else 
+                else
                 {
                     if (line != "")
                     {
@@ -181,30 +262,22 @@ namespace AofC
                 }
             }
         }
-
-        
-       
-       
         private void DisplayListStr(List<string> aList)
         {
             foreach (var el in aList)
-            { Console.Write($"{el} "); }
-            //Console.WriteLine();
+            { Console.WriteLine($"{el} "); }
+            Console.WriteLine();
 
         }
+
+        // part2
+            private void CreateValidDesignList(string fileName)
+            {
+                IEnumerable<string> lines = File.ReadLines(fileName);
+                foreach (var line in lines)
+                {
+                    validDesigns.Add(line);
+                }                       
+            }
     }
 }
-
-
-/* iterate a list
-       foreach (var element in list)
-           Console.Write(element);
-   or like an array
-       for (int index = 0; index < list.Count; index += 1)
-           Console.Write(list[index]);
-
-foreach(KeyValuePair<string, string> ele2 in My_dict2)
-  {
-                Console.WriteLine("{0} and {1}", ele2.Key, ele2.Value);
-    }
-*/

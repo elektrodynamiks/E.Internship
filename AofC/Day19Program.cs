@@ -20,6 +20,7 @@ namespace AofC
             Console.WriteLine($"Day19 Started!");
             string fileExample = "Day19Example.txt";
             string filePuzzle = "Day19Input.txt";
+            string validDesign = "Day19ValidDesign.txt";
             //var fileName = fileExample;
             var fileName = filePuzzle;
             
@@ -62,7 +63,7 @@ namespace AofC
             var i = 0;
             var match = false;
             var order = "none";
-            // Console.WriteLine($"creating: {design}");
+            //Console.WriteLine($"creating: {design}");
             do
             {
                 if (i >= 1)
@@ -77,13 +78,13 @@ namespace AofC
                 //Console.WriteLine($"try {i} :{match}");
                 i++;
                 
-            } while (i <= 10 && !match);
+            } while (i <= 150 && !match);
 
         }
 
         private bool CheckForPatternDesignMatch(string design, string regexPattern)
         {
-            
+            var copy = design;
             string pattern = @regexPattern ;
             
             foreach (Match match in Regex.Matches(design, pattern, RegexOptions.Compiled))
@@ -94,8 +95,8 @@ namespace AofC
 
             if (design.Length == 0)
             { 
-                
                 // Console.WriteLine($"Pattern is matching!");
+                Console.WriteLine($"{copy}");
                 possibleDesign++;
                 return true;
             }

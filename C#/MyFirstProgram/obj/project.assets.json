@@ -8,19 +8,19 @@
     "net9.0": []
   },
   "packageFolders": {
-    "/Users/elektrodynamiks/.nuget/packages/": {}
+    "/Users/nakharinh.phomsouvanh/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/elektrodynamiks/Code/E.Internship/C#/MyFirstProgram/MyFirstProgram.csproj",
+      "projectUniqueName": "/Users/nakharinh.phomsouvanh/Code/C#/MyFirstProgram/MyFirstProgram.csproj",
       "projectName": "MyFirstProgram",
-      "projectPath": "/Users/elektrodynamiks/Code/E.Internship/C#/MyFirstProgram/MyFirstProgram.csproj",
-      "packagesPath": "/Users/elektrodynamiks/.nuget/packages/",
-      "outputPath": "/Users/elektrodynamiks/Code/E.Internship/C#/MyFirstProgram/obj/",
+      "projectPath": "/Users/nakharinh.phomsouvanh/Code/C#/MyFirstProgram/MyFirstProgram.csproj",
+      "packagesPath": "/Users/nakharinh.phomsouvanh/.nuget/packages/",
+      "outputPath": "/Users/nakharinh.phomsouvanh/Code/C#/MyFirstProgram/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/elektrodynamiks/.nuget/NuGet/NuGet.Config"
+        "/Users/nakharinh.phomsouvanh/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
@@ -42,7 +42,7 @@
       "restoreAuditProperties": {
         "enableAudit": "true",
         "auditLevel": "low",
-        "auditMode": "direct"
+        "auditMode": "all"
       },
       "SdkAnalysisLevel": "9.0.100"
     },
@@ -65,7 +65,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.101/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

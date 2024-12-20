@@ -1,7 +1,10 @@
 using System;
-using System.Collections.Generic;
+
 using System.Text.RegularExpressions;
 using System.Linq;
+using System.IO;
+using System.Collections;
+using System.Collections.Generic;
 using AofC.Models;
 
 namespace AofC
@@ -9,7 +12,9 @@ namespace AofC
 
     public class Day11Program
     {
-        private List<long> pebbles;
+        IList<long> pebbles= new List<long>(1000000000);
+        IList<long> pebbles_= new List<long>(1000000000);
+         
         //private Dictionary<int, List<long>> blinks;
 
         public Day11Program()
@@ -20,12 +25,9 @@ namespace AofC
             //var fileName = fileExample;
             var fileName = filePuzzle;
             
-            pebbles = new List<long>();
-            //blinks = new Dictionary<int, List<long>>();
-            
             CreatePebblesList(fileName);
-            Day11Part1();
-
+            //Day11Part1();
+            Day11Part2();
         }
 
         private void CreatePebblesList(string fileName)
@@ -41,19 +43,19 @@ namespace AofC
             //blinks.Add(0,pebbles);
 
         }
-    
-        
+
+
 
         private void Day11Part1()
         {
-            for (int blink=0; blink < 75; blink++){
+            for (int blink = 0; blink < 50; blink++)
+            {
                 //var pebbles = blinks[blink];
-                var arrangement = new List<long>();
-                //List<object> arrangement = new List<object>();
+                IList<long> arrangement = new List<long>();
+
                 foreach (var stone in pebbles)
                 {
-                    
-                    //Console.Write(engrave);
+
                     if (stone == 0)
                     {
                         arrangement.Add(1);
@@ -66,30 +68,49 @@ namespace AofC
                         int length = digits.Length;
                         int half = length / 2;
                         string digitLeft = digits.Substring(0, half);
-                        string digitright =digits.Substring(length - half); 
+                        string digitright = digits.Substring(length - half);
                         // Console.WriteLine($"left {digitLeft} right{digitright}");
-                        arrangement.Add(long.Parse(digitLeft)); 
+                        arrangement.Add(long.Parse(digitLeft));
                         arrangement.Add(long.Parse(digitright));
 
                     }
                     else
-                    {   
+                    {
                         arrangement.Add(stone * 2024);
                         //Console.WriteLine($"  multiplied by 2024");
                     }
-                    
+
+
+
                 }
-                Console.WriteLine($"After {blink+1} blinks");
+
+                Console.WriteLine($"After {blink + 1} blinks");
                 //DisplayListInt(arrangement);
                 //blinks.Add(1+blink, arrangement);
                 pebbles = arrangement;
                 Console.WriteLine($"stones: {arrangement.Count}");
-                
-            } 
-           
-          
+
+            }
+
         }
-        private void Day11Part2(){}
+    
+
+        private void Day11Part2()
+        {
+            try
+            {
+                Day11Part1();
+            }
+            catch (OutOfMemoryException e)
+            {
+                Console.WriteLine("Terminating application unexpectedly...");
+                Environment.FailFast(String.Format("Out of Memory: {0}",
+                    e.Message));
+            }
+
+
+        }
+        
         private void DisplayListInt(List<long> aList)
         {
             foreach (var el in aList)

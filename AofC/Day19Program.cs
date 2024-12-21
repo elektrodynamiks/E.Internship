@@ -44,13 +44,19 @@ namespace AofC
         private void Day19Part2()
         {
             var i = 0;
+            var startAt = 250;
             foreach (var valid in validDesigns)
             {
-                if (i >= 0)
+                if (i >= (startAt))
                 {
+                    if (i == (startAt))
+                    {
+                        Console.WriteLine(startAt);
+                    }
+
                     CountPossibleCombination(valid);
                 }
-                //if (i >= 334) {break;}
+                //if (i >= 299) {break;}
                 i++;
             }
             Console.WriteLine(possibleCombination);
@@ -243,7 +249,7 @@ namespace AofC
             {
                 if (line.Contains(","))
                 {
-                    foreach (Match match in Regex.Matches(line, Pattern))
+                    foreach (Match match in Regex.Matches(line, Pattern, RegexOptions.Compiled))
                     {
                         patterns.Add(match.Value);
                         // Console.WriteLine("Found '{0}' at position {1}", match.Value, match.Index);
@@ -253,7 +259,7 @@ namespace AofC
                 {
                     if (line != "")
                     {
-                        foreach (Match match in Regex.Matches(line, Pattern))
+                        foreach (Match match in Regex.Matches(line, Pattern, RegexOptions.Compiled))
                         {
                             designs.Add(match.Value);
                             //Console.WriteLine("Found '{0}' at position {1}", match.Value, match.Index);
